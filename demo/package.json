@@ -1,0 +1,23 @@
+{
+  "name": "instragram",
+  "version": "1.0.0",
+  "description": "Use for instagram",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "keywords": [
+    "insta"
+  ],
+  "author": "Rajat Gupta",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.5.6",
+    "express": "^4.15.3",
+    "instagram-node": "^0.5.8"
+  }
+}
