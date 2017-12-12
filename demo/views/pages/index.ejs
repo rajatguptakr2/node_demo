@@ -8,12 +8,12 @@
 <% include ../partials/header %>
 </header>
 <main>
+<main>
 <div class="row">
-<% message.forEach(function(gram){ %>
-
+<% grams.forEach(function(gram) { %>
 <div class="instagram-pic col-sm-3">
 <a href="<%= gram.link %>" target="_blank">
-<img src="<%= gram.images.standard_resolution.url %>" class="imgresponsive">
+<img src="<%= gram.images.standard_resolution.url %>" class="img-responsive"
 </a>
 <div class="instagram-bar">
 <div class="likes">
@@ -26,13 +26,11 @@
 </div>
 </div>
 </div>
-
 <% }); %>
-
 </div>
+</main>
 
-
-
+</main>
 <footer>
 <% include ../partials/footer %>
 </footer>

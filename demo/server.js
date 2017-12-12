@@ -1,26 +1,17 @@
 // GRAB THE PACKAGES/VARIABLES WE NEED
 // ==================================================
 var express = require('express');
-const os = require('os');
 var app = express();
-const dns = require('dns');  
-
-
-
-
-dns.lookup('www.javatpoint.com', (err, addresses, family) => {  
-  console.log('addresses:', addresses);  
-  console.log('family:',family);  
-});
-
-
 var ig = require('instagram-node').instagram();
+
+
+
+
 
 // CONFIGURE THE APP
 // ==================================================
 // tell node where to look for site resources
 
-console.log("os.freemem(): \n",os.networkInterfaces());  
 app.use(express.static(__dirname + '/public'));
 
 // set the view engine to ejs
@@ -30,27 +21,22 @@ app.set('view engine', 'ejs');
 // SET THE ROUTES
 // ===================================================
 // home page route - our profile's images
-
-
-
+// home page route - popular images
 app.get('/', function (req, res) {
-    
-    ig.user_self_media_recent(function(err, medias, pagination, remaining, limit) {
-        
-    res.render('pages/index', {message:medias});
-        
-    });
-
+// use the instagram package to get popular media
+    ig.user_self_media_recent(function(err, medias, pagination, remaining, limit){
+// render the home page and pass in the popular images
+                res.render('pages/index', { grams: medias });
+            }
+    );
 });
 
 
 
 
-
-// configure instagram app with your access_token
 ig.use({
-    // get access token here: http://instagram.pixelunion.net/
-    access_token: '2900699242.1677ed0.4a856166f5454e5fa000877b1ea7f54a',
+// get access token here: http://instagram.pixelunion.net/
+access_token: 'MY_ACCESS_TOKEN',
 });
 
 
